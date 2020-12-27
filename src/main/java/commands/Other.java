@@ -60,7 +60,7 @@ public class Other extends ListenerAdapter {
                 commands.clear();
                 break;
             case PREFIX + "github":
-                channel.sendMessage("Github link will be provided soon...").queue();
+                channel.sendMessage("Github project link " + GITHUB).queue();
                 break;
             case PREFIX + "youtube":
                 channel.sendMessage("My YouTube channel: " + YOUTUBE).queue();

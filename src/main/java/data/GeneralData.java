@@ -40,7 +40,7 @@ public class GeneralData {
     public static final String RESERVE_IMAGE = IMAGES_PATH + "/reserve.jpg";
 
     //Other links
-    public static final String GITHUB = "";
+    public static final String GITHUB = "https://github.com/shumylo/AvenBot";
     public static final String YOUTUBE = "https://www.youtube.com/channel/UC9kgx_41P833y5aph2x2hUA";
     public static final String SOUNDCLOUD = "https://soundcloud.com/satellite-runner";
     public static final String NEKO_URL = "https://nekos.life/api/neko";
