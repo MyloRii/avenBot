@@ -1,9 +1,10 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
 }
 
 group 'org.example'
-version '1.0-SNAPSHOT'
+version '1.0'
 
 repositories {
     jcenter()
@@ -21,4 +22,13 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes (
+                'Class-Path': configurations.runtimeClasspath.files.collect { it.getName() }.join(' '),
+                'Main-Class': 'com.aven.Main'
+                )
+    }
 }

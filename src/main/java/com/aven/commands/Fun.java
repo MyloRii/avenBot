@@ -1,4 +1,4 @@
-package commands;
+package com.aven.commands;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
@@ -17,8 +17,8 @@ import java.util.Objects;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static data.GeneralData.NEKO_URL;
-import static data.GeneralData.PREFIX;
+import static com.aven.data.GeneralData.NEKO_URL;
+import static com.aven.data.GeneralData.PREFIX;
 
 public class Fun extends ListenerAdapter {
 
@@ -30,15 +30,13 @@ public class Fun extends ListenerAdapter {
         String msg = message.getContentDisplay();
 
         switch (msg) {
-            case PREFIX + "ping":
-                channel.sendMessage("ping yourself you filthy perv!").queue();
-                break;
-            case PREFIX + "roll":
+            case PREFIX + "ping" -> channel.sendMessage("ping yourself you filthy perv!").queue();
+            case PREFIX + "roll" -> {
                 Random rand = ThreadLocalRandom.current();
                 int roll = rand.nextInt(6) + 1; //This results in 1 - 6 (instead of 0 - 5)
                 channel.sendMessage("Your roll: " + roll).queue();
-                break;
-            case PREFIX + "nekogirl":
+            }
+            case PREFIX + "nekogirl" -> {
                 OkHttpClient client = jda.getHttpClient();
                 Request request = new Request.Builder().url(NEKO_URL).build();
                 Call call = client.newCall(request);
@@ -51,12 +49,11 @@ public class Fun extends ListenerAdapter {
                     e.printStackTrace();
                 }
                 JSONObject jsonObject = new JSONObject(Objects.requireNonNull(jsonData));
-
                 EmbedBuilder neko = new EmbedBuilder();
                 neko.setImage(jsonObject.getString("neko"));
                 channel.sendMessage(neko.build()).queue();
                 neko.clear();
-                break;
+            }
         }
     }
 }

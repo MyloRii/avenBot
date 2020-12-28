@@ -1,4 +1,4 @@
-package data;
+package com.aven.data;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +16,7 @@ public class GeneralData {
             .asList("ping", "roll", "nekogirl");
     public static final List<String> FUN_COMMANDS_PREFIXED = addPrefixToCommands(FUN_COMMANDS);
     public static final List<String> OTHER_COMMANDS = Arrays
-            .asList("info", "commands", "clear", "github", "youtube", "soundcloud");
+            .asList("info", "com/aven/commands", "clear", "github", "youtube", "soundcloud");
     public static final List<String> OTHER_COMMANDS_PREFIXED = addPrefixToCommands(OTHER_COMMANDS);
 
     //Design

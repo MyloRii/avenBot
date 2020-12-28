@@ -1,4 +1,4 @@
-package utils;
+package com.aven.utils;
 
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
