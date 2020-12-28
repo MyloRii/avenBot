@@ -1,5 +1,6 @@
 package com.aven.commands;
 
+import com.aven.utils.GeneralHelper;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageChannel;
@@ -7,7 +8,6 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.aven.utils.GeneralHelper;
 
 import java.util.List;
 import java.util.Objects;
@@ -33,14 +33,14 @@ public class Other extends ListenerAdapter {
                 info.setTitle("Aven Bot");
                 info.setDescription("A bot is created as a personal project to provide links and " +
                         "tips for games I play.\n\n" +
-                        "Type " + PREFIX + "com.aven.commands to see available com.aven.commands");
+                        "Type " + PREFIX + "commands to see available commands");
                 info.setColor(BLUE_COLOR_HEX);
                 info.setFooter("Created by Andrii Shumylo", Objects
                         .requireNonNull(event.getMember()).getUser().getAvatarUrl());
                 channel.sendMessage(info.build()).queue();
                 info.clear();
             }
-            case PREFIX + "com/aven/commands" -> {
+            case PREFIX + "commands" -> {
                 EmbedBuilder commands = new EmbedBuilder();
                 commands.setColor(BLUE_COLOR_HEX);
                 commands.addField("Tarkov", TARKOV_COMMANDS_PREFIXED
@@ -58,7 +58,7 @@ public class Other extends ListenerAdapter {
                 channel.sendMessage(commands.build()).queue();
                 commands.clear();
             }
-            case PREFIX + "github" -> channel.sendMessage("Github project link " + GITHUB).queue();
+            case PREFIX + "github" -> channel.sendMessage("Github project link: " + GITHUB).queue();
             case PREFIX + "youtube" -> channel.sendMessage("My YouTube channel: " + YOUTUBE).queue();
             case PREFIX + "soundcloud" -> channel.sendMessage("My Soundcloud: " + SOUNDCLOUD).queue();
         }
