@@ -33,11 +33,10 @@ public class GeneralData {
             "https://docs.google.com/spreadsheets/d/1_l-gYeSt2MqIw62EdMZt_wefG0yO9L7dTaRM74c2J1w/htmlview";
 
     //Maps images
-    private static final String IMAGES_PATH = "src/main/resources/pics.tarkov";
-    public static final String INTERCHANGE_IMAGE = IMAGES_PATH + "/interchange.jpg";
-    public static final String SHORELINE_IMAGE = IMAGES_PATH + "/shoreline.jpg";
-    public static final String CUSTOMS_IMAGE = IMAGES_PATH + "/customs.jpg";
-    public static final String RESERVE_IMAGE = IMAGES_PATH + "/reserve.jpg";
+    public static final String INTERCHANGE = "https://external-preview.redd.it/y-JZHGz3yp4jJrjdKDlMKPuZsGvZEfoSj5tlZmKyh60.jpg?auto=webp&s=268fc16b72b4e2293c4386169d9856161d5b72b1";
+    public static final String SHORELINE = "https://i.pinimg.com/originals/d8/e7/61/d8e761557db5c93b941b6eade14baf6e.jpg";
+    public static final String CUSTOMS = "https://i.redd.it/u92z6jpghs841.png";
+    public static final String RESERVE = "https://external-preview.redd.it/y_SQ2xkvGnLsiYYfrRJBLwUORKiEV33pgt9eV-8LRqk.jpg?auto=webp&s=b7ebed25bbd1e244aebf8c46d108afee73c9aea0";
 
     //Other links
     public static final String GITHUB = "https://github.com/shumylo/AvenBot";
