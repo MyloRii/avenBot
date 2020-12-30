@@ -1,16 +1,14 @@
-FROM openjdk:15-jdk
+FROM gradle:6.7.1-jdk15
 
 MAINTAINER Andrii Shumylo "shumylo.a@gmail.com"
 
-#install git
-RUN apt-get install -y git
-RUN git clone https://github.com/shumylo/AvenBot.git
-#install gradle
-RUN wget https://downloads.gradle-dn.com/distributions/gradle-6.7.1-bin.zip
-RUN unzip gradle-6.7.1-bin.zip
-ENV GRADLE_HOME /gradle-6.7.1
-ENV PATH $PATH:/gradle-6.7.1/bin
-#compile and run app
-WORKDIR AvenBot
+ENV APP_HOME=/var/app/
+
+COPY . ${APP_HOME}
+WORKDIR ${APP_HOME}
+USER root
 RUN gradle clean shadowJar --rerun-tasks --no-build-cache
-ENTRYPOINT ["java", "-jar", "/AvenBot-1.0-SNAPSHOT-all.jar.jar"]
+
+ENV ARTIFACT_NAME=${APP_HOME}/build/libs/AvenBot-1.0-SNAPSHOT-all.jar
+
+ENTRYPOINT exec java -jar ${ARTIFACT_NAME}
