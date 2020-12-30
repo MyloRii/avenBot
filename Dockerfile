@@ -1,27 +1,16 @@
-FROM gradle:6.7.1-jdk15 AS TEMP_BUILD_IMAGE
+FROM openjdk:15-jdk
 
 MAINTAINER Andrii Shumylo "shumylo.a@gmail.com"
 
-ENV APP_HOME=/usr/app/
-WORKDIR $APP_HOME
-COPY build.gradle settings.gradle $APP_HOME
-
-COPY gradle $APP_HOME/gradle
-COPY --chown=gradle:gradle . /home/gradle/src
-USER root
-RUN chown -R gradle /home/gradle/src
-
-RUN gradle build || return 0
-COPY . .
-RUN gradle shadowJar
-
-# actual container
-FROM adoptopenjdk/openjdk15:alpine-jre
-ENV ARTIFACT_NAME=AvenBot-1.0-all.jar
-ENV APP_HOME=/usr/app/
-
-WORKDIR $APP_HOME
-COPY --from=TEMP_BUILD_IMAGE $APP_HOME/build/libs/$ARTIFACT_NAME .
-
-EXPOSE 8080
-ENTRYPOINT exec java -jar ${ARTIFACT_NAME}
+#install git
+RUN apt-get install -y git
+RUN git clone https://github.com/shumylo/AvenBot.git
+#install gradle
+RUN wget https://downloads.gradle-dn.com/distributions/gradle-6.7.1-bin.zip
+RUN unzip gradle-6.7.1-bin.zip
+ENV GRADLE_HOME /gradle-6.7.1
+ENV PATH $PATH:/gradle-6.7.1/bin
+#compile and run app
+WORKDIR AvenBot
+RUN gradle clean shadowJar --rerun-tasks --no-build-cache
+ENTRYPOINT ["java", "-jar", "/AvenBot-1.0-SNAPSHOT-all.jar.jar"]

@@ -23,7 +23,7 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            jda = JDABuilder.createDefault(System.getenv("DISCORD_BOT_TOKEN"))
+            jda = JDABuilder.createDefault(System.getenv("TOKEN"))
                     .addEventListeners(
                             new Fun(),
                             new Tarkov(),
