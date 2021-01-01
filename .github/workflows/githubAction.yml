@@ -1,0 +1,24 @@
+name: Java CI with Gradle
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: build
+      env:
+        DOCKER_HUB: ${{ secrets.DOCKER_HUB }}
+        DOCKER_HUB_KEY: ${{ secrets.DOCKER_HUB_KEY }}
+      run: 
+       ls -l
+       echo 'Docker login'
+       docker login -u $DOCKER_HUB -p DOCKER_HUB_KEY
+       echo 'Running build...'
+       docker build . -t mylorii/avenbot
+       echo 'Pushing image...'
+       docker push mylorii/avenbot
+       echo 'Done!'
