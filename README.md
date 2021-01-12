@@ -6,10 +6,7 @@ Docker image is built after any commit to master branch via github actions
 
 To run avenbot:
 Pull docker image to host machine: docker pull mylorii/avenbot; 
-Run docker container with: docker run -e TOKEN(discord bot token) mylorii/avenbot
-
-Note: I use 'screen' to detach window with application. So it is usefull to run 'screen' command before running docker container.
-ctrl+a then ctrl+d to detach from window
+Run docker container with: docker run -d -e TOKEN(discord bot token) mylorii/avenbot
 
 Usefull docker commands:
 - docker build {image} . - to build docker image. Dot refers to Dockerfile path which is inside root project folder
@@ -17,3 +14,8 @@ Usefull docker commands:
 - docker ps - to see running containers
 - docker ps -a - to see all containers
 - docker system prune -a - to delete all images and stopped containers
+
+In order to run in Heroku:
+- create heroku app
+- set GRADLE_TASK var in heroku to 'shadowJar'
+- run jar using this commands via Heroki CLI: heroku run:detached "java -jar build/libs/AvenBot-1.0-SNAPSHOT-all.jar" -a {app_name}
