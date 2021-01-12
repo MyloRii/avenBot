@@ -44,6 +44,12 @@ public class Tarkov extends ListenerAdapter {
                 channel.sendMessage(reserve.build()).queue();
                 reserve.clear();
             }
+            case PREFIX + "woods" -> {
+                EmbedBuilder reserve = new EmbedBuilder();
+                reserve.setImage(WOODS);
+                channel.sendMessage(reserve.build()).queue();
+                reserve.clear();
+            }
             case PREFIX + "ammo" -> {
                 EmbedBuilder ammo = new EmbedBuilder();
                 ammo.addField("Ammo chart link v12.9: ", AMMO_CHART_V_12_9, false);
