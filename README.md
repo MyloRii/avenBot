@@ -25,3 +25,8 @@ To deploy and run on Heroku:
 - set TOKEN var in heroku to {discord bot token}
 - run jar using this commands via Heroku CLI: heroku run:detached "java -jar build/libs/AvenBot-1.0-SNAPSHOT-all.jar" -a
   {app_name}
+
+Usefull heroku commands:
+
+- heroku ps - to see running dynos
+- heroku ps:stop run.{runNumber to stop dyno}
