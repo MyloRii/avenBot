@@ -10,7 +10,7 @@ public class GeneralData {
 
     //Command Lists
     public static final List<String> TARKOV_COMMANDS = Arrays
-            .asList("customs", "interchange", "shoreline", "reserve", "ammo");
+            .asList("customs", "interchange", "shoreline", "reserve", "woods", "ammo");
     public static final List<String> TARKOV_COMMANDS_PREFIXED = addPrefixToCommands(TARKOV_COMMANDS);
     public static final List<String> FUN_COMMANDS = Arrays
             .asList("ping", "roll", "nekogirl");
