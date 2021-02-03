@@ -10,7 +10,7 @@ discord bot token) mylorii/avenbot
 
 Usefull docker commands:
 
-- docker build {image} . - to build docker image. Dot refers to Dockerfile path which is inside root project folder
+- docker build . -t {imageName} - to build docker image. Dot refers to Dockerfile path which is inside root project folder
 - docker image ls - to see available images
 - docker ps - to see running containers
 - docker ps -a - to see all containers
