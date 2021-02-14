@@ -23,6 +23,7 @@ To deploy and run on Heroku:
 - create heroku app
 - set GRADLE_TASK var in heroku to 'shadowJar'
 - set TOKEN var in heroku to {discord bot token}
+- login to Heroku via CLI: heroku login
 - run jar using this commands via Heroku CLI: heroku run:detached "java -jar build/libs/AvenBot-1.0-SNAPSHOT-all.jar" -a
   {app_name}
 
